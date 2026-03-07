@@ -468,14 +468,6 @@ body::before {
   scroll-margin-top: 94px;
 }
 
-#section {
-  margin: 0px;
-  padding: 64px 200px;
-  background: var(--ink-50);
-  scroll-margin-top: 94px;
-}
-
-
 .section:nth-of-type(odd) {
   background: var(--card);
 }
@@ -487,23 +479,6 @@ body::before {
 /* ═══════════════════════════════════
    SECTION HEADERS
 ═══════════════════════════════════ */
-
-#section-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-family: var(--ff-display);
-  font-size: 24px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--indigo-500);
-  /*background: var(--indigo-50);
-  border: 1.5px solid var(--indigo-100);*/
-  border-radius: 99px;
-  /*padding: 4px 13px;*/
-  margin-bottom: 16px;
-  transition: all .2s ease;
-}
 
 .section-kicker {
   display: inline-flex;
@@ -2004,7 +1979,7 @@ body::before {
 
   .section {
     margin: 0px;
-    padding: 64px 200px;
+    padding: 64px 48px;
     position: relative;
     overflow: hidden;
   }
