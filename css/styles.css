@@ -2048,7 +2048,7 @@ body::before {
 
   .neutral-strip {
     flex-wrap: wrap;
-    height: auto
+    height: auto;
   }
 
   .neutral-strip .n-chip {
