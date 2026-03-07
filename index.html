@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graphly — Color System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <!-- ═════════════════ HERO ═════════════════ -->
+  <div class="hero">
+    <div class="hero-bg">
+      <div class="dot-grid"></div>
+      <div class="circle-1"></div>
+      <div class="circle-2"></div>
+    </div>
+
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="pipe"></span>
+        Graphly Design System · Color
+      </div>
+      <h1>
+        Science.
+        <span class="word-vibrant">Vibrant.</span>
+        <span class="word-fun">Fun.</span>
+      </h1>
+      <p class="hero-desc">
+        A color system made for Arabic-speaking learners (16–30). Every shade has a clear purpose.
+      </p>
+      <div class="hero-desc" style="color:var(--ink-600);">
+        <h6>Click tag to learn more </h6>
+      </div>
+      <div class="hero-tags">
+        <a class="hero-tag active"
+          href="https://uxplanet.org/ux-design-colour-psychology-theory-accessibility-40c095cc1077" target="_blank">UX
+          Color Theory</a>
+        <a class="hero-tag active" href="https://en.wikipedia.org/wiki/Self-determination_theory"
+          target="_blank">SDT-Driven</a>
+        <a class="hero-tag active" href="https://www.w3.org/TR/WCAG21/" target="_blank">WCAG 2.1 AA</a>
+        <a class="hero-tag active" href="https://en.wikipedia.org/wiki/Dark_mode" target="_blank">Dark Mode</a>
+        <a class="hero-tag active" href="https://en.wikipedia.org/wiki/MENA" target="_blank">MENA Research</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-swatch-row">
+        <div class="hsr-dot" style="background:linear-gradient(135deg,var(--indigo-600),var(--indigo-400))"></div>
+        <div class="hsr-info">
+          <a href="#sw-top" style="display:flex; flex-direction:column;gap:4px; text-decoration: none; outline: none;">
+          <span class="hsr-name">Electric Indigo</span>
+          <span class="hsr-role">Brand Anchor</span>
+          </a>
+        </div>
+        <span class="hsr-hex">#5C42D9</span>
+      </div>
+      <div class="hero-swatch-row">
+        <a href="#sw-top" style="display:flex; flex-direction:column;gap:4px; text-decoration: none; outline: none;">
+        <div class="hsr-dot" style="background:linear-gradient(135deg,var(--coral-600),var(--coral-400))"></div>
+        <div class="hsr-info">
+          <a href="#sw-top" style="display:flex; flex-direction:column;gap:4px; text-decoration: none; outline: none;">
+          <span class="hsr-name">Coral Punch</span>
+          <span class="hsr-role">Gamification</span>
+          </a>
+        </div>
+        <span class="hsr-hex">#E84828</span>
+      </div>
+      <div class="hero-swatch-row">
+        <div class="hsr-dot" style="background:linear-gradient(135deg,var(--mint-600),var(--mint-400))"></div>
+        <div class="hsr-info">
+          <a href="#sw-top" style="display:flex; flex-direction:column;gap:4px; text-decoration: none; outline: none;">
+            <span class="hsr-name">Neon Mint</span>
+            <span class="hsr-role">Success</span>
+          </a>
+        </div>
+        <span class="hsr-hex">#00B887</span>
+      </div>
+      <div class="hero-swatch-row">
+        <div class="hsr-dot" style="background:linear-gradient(135deg,#B89000,var(--lemon-500))"></div>
+        <div class="hsr-info">
+          <a href="#sw-top" style="display:flex; flex-direction:column;gap:4px; text-decoration: none; outline: none;">
+            <span class="hsr-name">Lemon Zest</span>
+            <span class="hsr-role">XP & Coins</span>
+          </a>
+        </div>
+        <span class="hsr-hex">#F0C000</span>
+      </div>
+      <div class="hero-swatch-row" style="opacity:.6">
+        <div class="hsr-dot" style="background:linear-gradient(135deg,#1A1833,#3F3A5C)"></div>
+        <div class="hsr-info" style="scroll-snap-type: y mandatory">
+          <a href="#section" style="display:flex; flex-direction:column;gap:4px; text-decoration: none; outline: none; scroll-snap-align: center; ">
+            <span class="hsr-name">Warm Ink</span>
+            <span class="hsr-role">Neutral System</span>
+          </a>
+        </div>
+        <span class="hsr-hex">#1C1833</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═════════════════ SITE NAVIGATION ═════════════════ -->
+  <nav class="site-nav" aria-label="Page sections">
+    <ul>
+      <li><a href="#science">Science</a></li>
+      <li><a href="#core">Core Palette</a></li>
+      <li><a href="#tonal">Tonal Scales</a></li>
+      <li><a href="#semantic">Semantic</a></li>
+      <li><a href="#secondary">Secondary Colors</a></li>
+      <li><a href="#usage">Usage Rules</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══════════ 01 · SCIENCE ══════════ -->
+  <div id="science" class="section">
+    <div class="section-kicker"><span class="k-num">01</span> Scientific Foundation</div>
+    <h2 class="section-title">Built on evidence,<br />not <span class="hi">instinct.</span></h2>
+    <p class="section-sub">This system is grounded in psychology, accessibility, culture, and reward science.</p>
+
+    <div class="sci-grid">
+      <div class="sci-card">
+        <div class="sci-card-bar" style="background:linear-gradient(90deg,var(--indigo-500),var(--indigo-300))"></div>
+        <div class="sci-icon" data-icon="brain"></div>
+        <h4>Self-Determination Theory</h4>
+        <p>Each primary color ties to a human need: Indigo for competence, Coral for motivation, Mint for connection. UI choices support real motivation, not gimmicks.</p>
+      </div>
+      <div class="sci-card">
+        <div class="sci-card-bar" style="background:linear-gradient(90deg,var(--coral-500),var(--lemon-500))"></div>
+        <div class="sci-icon" data-icon="bolt"></div>
+        <h4>Activation & Reward</h4>
+        <p>Coral and lemon work together to make rewards feel satisfying without feeling pushy.</p>
+      </div>
+      <div class="sci-card">
+        <div class="sci-card-bar" style="background:linear-gradient(90deg,var(--mint-500),var(--info))"></div>
+        <div class="sci-icon" data-icon="accessibility"></div>
+        <h4>WCAG 2.1 AA</h4>
+        <p>All core colors meet WCAG 2.1 AA contrast for text. Coral is used only in large text for best readability.</p>
+      </div>
+      <div class="sci-card">
+        <div class="sci-card-bar" style="background:linear-gradient(90deg,var(--lemon-500),var(--coral-400))"></div>
+        <div class="sci-icon" data-icon="globe"></div>
+        <h4>MENA Cultural Data</h4>
+        <p>Research in MENA markets shows a strong preference for violet-indigo and warm gold tones. This palette aligns with those preferences.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ 02 · CORE PALETTE ══════════ -->
+  <div id="core" class="section">
+    <div class="section-kicker"><span class="k-num">02</span> Core Palette</div>
+    <h2 class="section-title">Four colors.<br /><span class="hi">Four jobs.</span> No overlap.</h2>
+    <p class="section-sub">Each color has a single purpose. Mixing roles makes the message unclear.</p>
+
+    <div class="swatch-grid">
+      <div class="sw-card">
+        <div id="sw-top" style="background:linear-gradient(145deg,#2A1A70,#5C42D9)">
+          <div class="sw-top-circle"></div>
+          <div class="sw-top-circle2"></div>
+          <div class="sw-icon" style="color: rgba(255,255,255,.9)" data-icon="bolt"></div>
+          <span class="sw-hex">#5C42D9</span>
+        </div>
+        <div class="sw-body">
+          <div class="sw-name">Electric Indigo</div>
+          <div class="sw-role">Primary Brand</div>
+          <div class="sw-desc">Brand anchor: modern and confident. Designed for clarity and cultural resonance.</div>
+        </div>
+      </div>
+      <div class="sw-card">
+        <div id="sw-top" style="background:linear-gradient(145deg,#8A1F08,#E84828)">
+          <div class="sw-top-circle"></div>
+          <div class="sw-top-circle2"></div>
+          <div class="sw-icon" style="color: rgba(255,255,255,.9)" data-icon="flame"></div>
+          <span class="sw-hex">#E84828</span>
+        </div>
+        <div class="sw-body">
+          <div class="sw-name">Coral Punch</div>
+          <div class="sw-role">Gamification Energy</div>
+          <div class="sw-desc">Reward color used only for streaks, XP and level-ups. Bold, urgent, and never diluted.</div>
+        </div>
+      </div>
+      <div class="sw-card">
+        <div id="sw-top" style="background:linear-gradient(145deg,#005740,#00B887)">
+          <div class="sw-top-circle"></div>
+          <div class="sw-top-circle2"></div>
+          <div class="sw-icon" style="color: rgba(255,255,255,.9)" data-icon="check"></div>
+          <span class="sw-hex">#00B887</span>
+        </div>
+        <div class="sw-body">
+          <div class="sw-name">Neon Mint</div>
+          <div class="sw-role">Success & Completion</div>
+          <div class="sw-desc">Success color for confirmations and completed tasks. High contrast from Coral makes it friendly for colorblind users.</div>
+        </div>
+      </div>
+
+      <!-- Lemon wide card -->
+      <div class="sw-card sw-card-wide">
+        <div id="sw-top" style="background:linear-gradient(145deg,#7A5E00,#F0C000); min-width:200px;">
+          <div class="sw-top-circle"></div>
+          <div class="sw-icon" style="color: rgba(0,0,0,.6)" data-icon="star"></div>
+          <span class="sw-hex">#F0C000</span>
+        </div>
+        <div class="sw-body">
+          <div class="sw-name">Lemon Zest</div>
+          <div class="sw-role">XP · Coins · Stars · Achievements</div>
+          <div class="sw-desc" style="max-width:640px;">Reward accent for coins, stars, and achievements. Use only in non-text icons and badge graphics.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- ══════════ 03 · TONAL SCALES ══════════ -->
+    <div id="tonal" class="section">
+  
+  
+      <div class="section-kicker"><span class="k-num">03</span> Tonal Scales</div>
+      <h2 class="section-title">Seven steps.<br /><span class="hi">Every tone accounted for.</span></h2>
+      <p class="section-sub">Seven shades from deep to near-white. Use these for backgrounds, states, and glass effects.</p>
+
+      <div class="scale-name-row"><span class="sn-dot" style="background:var(--indigo-500)"></span><span>Electric
+          Indigo</span></div>
+      <div class="scale-row">
+        <div class="scale-chip" style="background:#160D3D"><span class="sc-hex"
+            style="color:#A594F0">#160D3D</span><span class="sc-step" style="color:rgba(165,148,240,.5)">950</span>
+        </div>
+        <div class="scale-chip" style="background:#2A1A70"><span class="sc-hex"
+            style="color:#A594F0">#2A1A70</span><span class="sc-step" style="color:rgba(165,148,240,.5)">800</span>
+        </div>
+        <div class="scale-chip" style="background:#4830B8"><span class="sc-hex" style="color:#fff">#4830B8</span><span
+            class="sc-step" style="color:rgba(255,255,255,.6)">600</span></div>
+        <div class="scale-chip" style="background:#5C42D9"><span class="sc-hex" style="color:#fff">#5C42D9 ★</span><span
+            class="sc-step" style="color:rgba(255,255,255,.65)">500</span></div>
+        <div class="scale-chip" style="background:#7B64E8"><span class="sc-hex" style="color:#fff">#7B64E8</span><span
+            class="sc-step" style="color:rgba(255,255,255,.6)">400</span></div>
+        <div class="scale-chip" style="background:#DDD7FC"><span class="sc-hex"
+            style="color:#2A1A70">#DDD7FC</span><span class="sc-step" style="color:rgba(42,26,112,.5)">100</span></div>
+        <div class="scale-chip" style="background:#F2F0FF"><span class="sc-hex"
+            style="color:#4830B8">#F2F0FF</span><span class="sc-step" style="color:rgba(72,48,184,.5)">50</span></div>
+      </div>
+
+      <div class="scale-name-row"><span class="sn-dot" style="background:var(--coral-500)"></span><span>Coral
+          Punch</span>
+      </div>
+      <div class="scale-row">
+        <div class="scale-chip" style="background:#5A1208"><span class="sc-hex"
+            style="color:#FCD5CC">#5A1208</span><span class="sc-step" style="color:rgba(252,213,204,.5)">900</span>
+        </div>
+        <div class="scale-chip" style="background:#8A1E0D"><span class="sc-hex"
+            style="color:#FCD5CC">#8A1E0D</span><span class="sc-step" style="color:rgba(252,213,204,.5)">700</span>
+        </div>
+        <div class="scale-chip" style="background:#C93318"><span class="sc-hex" style="color:#fff">#C93318</span><span
+            class="sc-step" style="color:rgba(255,255,255,.6)">600</span></div>
+        <div class="scale-chip" style="background:#E84828"><span class="sc-hex" style="color:#fff">#E84828 ★</span><span
+            class="sc-step" style="color:rgba(255,255,255,.65)">500</span></div>
+        <div class="scale-chip" style="background:#F06A4D"><span class="sc-hex" style="color:#fff">#F06A4D</span><span
+            class="sc-step" style="color:rgba(255,255,255,.6)">400</span></div>
+        <div class="scale-chip" style="background:#FCD5CC"><span class="sc-hex"
+            style="color:#5A1208">#FCD5CC</span><span class="sc-step" style="color:rgba(90,18,8,.5)">100</span></div>
+        <div class="scale-chip" style="background:#FFF2EF"><span class="sc-hex"
+            style="color:#8A1E0D">#FFF2EF</span><span class="sc-step" style="color:rgba(138,30,13,.5)">50</span></div>
+      </div>
+
+      <div class="scale-name-row"><span class="sn-dot" style="background:var(--mint-500)"></span><span>Neon Mint</span>
+      </div>
+      <div class="scale-row">
+        <div class="scale-chip" style="background:#002E22"><span class="sc-hex"
+            style="color:#9EEEDD">#002E22</span><span class="sc-step" style="color:rgba(158,238,221,.5)">900</span>
+        </div>
+        <div class="scale-chip" style="background:#005240"><span class="sc-hex"
+            style="color:#9EEEDD">#005240</span><span class="sc-step" style="color:rgba(158,238,221,.5)">700</span>
+        </div>
+        <div class="scale-chip" style="background:#008A66"><span class="sc-hex" style="color:#fff">#008A66</span><span
+            class="sc-step" style="color:rgba(255,255,255,.6)">600</span></div>
+        <div class="scale-chip" style="background:#00B887"><span class="sc-hex" style="color:#fff">#00B887 ★</span><span
+            class="sc-step" style="color:rgba(255,255,255,.65)">500</span></div>
+        <div class="scale-chip" style="background:#26D4A0"><span class="sc-hex"
+            style="color:#002E22">#26D4A0</span><span class="sc-step" style="color:rgba(0,46,34,.5)">400</span></div>
+        <div class="scale-chip" style="background:#9EEEDD"><span class="sc-hex"
+            style="color:#005240">#9EEEDD</span><span class="sc-step" style="color:rgba(0,82,64,.5)">100</span></div>
+        <div class="scale-chip" style="background:#E5FAF4"><span class="sc-hex"
+            style="color:#005240">#E5FAF4</span><span class="sc-step" style="color:rgba(0,82,64,.5)">50</span></div>
+      </div>
+
+      <div class="scale-name-row"><span class="sn-dot" style="background:var(--lemon-500)"></span><span>Lemon
+          Zest</span>
+      </div>
+      <div class="scale-row">
+        <div class="scale-chip" style="background:#3D3000"><span class="sc-hex"
+            style="color:#FFE066">#3D3000</span><span class="sc-step" style="color:rgba(255,224,102,.5)">900</span>
+        </div>
+        <div class="scale-chip" style="background:#706000"><span class="sc-hex"
+            style="color:#FFE066">#706000</span><span class="sc-step" style="color:rgba(255,224,102,.5)">700</span>
+        </div>
+        <div class="scale-chip" style="background:#A08A00"><span class="sc-hex" style="color:#fff">#A08A00</span><span
+            class="sc-step" style="color:rgba(255,255,255,.6)">600</span></div>
+        <div class="scale-chip" style="background:#F0C000"><span class="sc-hex" style="color:#3D3000">#F0C000
+            ★</span><span class="sc-step" style="color:rgba(61,48,0,.5)">500</span></div>
+        <div class="scale-chip" style="background:#FFD740"><span class="sc-hex"
+            style="color:#3D3000">#FFD740</span><span class="sc-step" style="color:rgba(61,48,0,.5)">400</span></div>
+        <div class="scale-chip" style="background:#FFE066"><span class="sc-hex"
+            style="color:#706000">#FFE066</span><span class="sc-step" style="color:rgba(112,96,0,.5)">300</span></div>
+        <div class="scale-chip" style="background:#FFFBE6"><span class="sc-hex"
+            style="color:#706000">#FFFBE6</span><span class="sc-step" style="color:rgba(112,96,0,.5)">50</span></div>
+      </div>
+    </div>
+
+    <!-- ══════════ 04 · SEMANTIC ══════════ -->
+    <div id="semantic" class="section">
+
+     <div class="section-kicker"><span class="k-num">04</span> Semantic Colors</div>
+      <h2 class="section-title">Three signals.<br /><span class="hi">Reserved, not decorative.</span></h2>
+      <p class="section-sub">Each semantic color has a single purpose. Mixing roles makes the message unclear.</p>
+      <div class="semantic-grid">
+
+        <!-- Hot Rose wide card -->
+        <div class="sem-card">
+          <div class="sem-body">
+            <div class="sem-name">Hot Rose — Error</div>
+
+            <div class="sem-desc">Use for errors, stops, and failed actions. Designed to be clear for colorblind users.</div>
+
+            <div class="sem-bar" style="background:linear-gradient(90deg,#B82040,#E83257)">
+              <span class="sem-bar-hex">#E83257</span>
+
+            </div>
+
+          </div>
+
+
+
+        </div>
+        <!--End of Rose wide card -->
+
+        <!-- Amber wide card -->
+        <div class="sem-card">
+          <div class="sem-body">
+
+            <div class="sem-name">Amber — Caution</div>
+
+            <div class="sem-desc">Use for warnings: low progress, near limits, or when users should pause. Different from reward colors.</div>
+
+            <div class="sem-bar" style="background:linear-gradient(90deg,#B07208,#F59E0B)">
+              <span class="sem-bar-hex">#F59E0B</span>
+            </div>
+
+          </div>
+        </div>
+        <!--End of Amber wide card -->
+
+
+
+        <!-- Cobalt wide card -->
+
+        <div class="sem-card">
+
+          <div class="sem-body">
+            <div class="sem-name">Cobalt — Info</div>
+            <div class="sem-desc">Use for information and labels. High contrast works on both light and dark backgrounds.</div>
+            <div class="sem-bar" style="background:linear-gradient(90deg,#1A4FCC,#3B7EF6)">
+              <span class="sem-bar-hex">#3B7EF6</span>
+            </div>
+
+          </div>
+
+        </div>
+        <!--End of Cobalt wide card -->
+
+
+      </div>
+    </div>
+  
+
+  <!-- ══════════ 05 · NEUTRALS ══════════ -->
+  <div id="section">
+    <div class="section-kicker"><span class="k-num">05</span> Neutral System</div>
+    <h2 class="section-title">Cool-shifted inks,<br /><span class="hi">not dead grey.</span></h2>
+    <p class="section-sub">Cool-leaning greys keep the brand tone even in long text. Made for mobile-first interfaces.</p>
+    <div class="neutral-strip">
+      <div class="n-chip" style="background:#0C0A18"><span class="n-hex" style="color:#CBC7E0">#0C0A18</span><span
+          class="n-name" style="color:rgba(203,199,224,.45)">950</span></div>
+      <div class="n-chip" style="background:#1C1833"><span class="n-hex" style="color:#CBC7E0">#1C1833</span><span
+          class="n-name" style="color:rgba(203,199,224,.45)">800</span></div>
+      <div class="n-chip" style="background:#3F3A5C"><span class="n-hex" style="color:#fff">#3F3A5C</span><span
+          class="n-name" style="color:rgba(255,255,255,.5)">600</span></div>
+      <div class="n-chip" style="background:#7E789E"><span class="n-hex" style="color:#fff">#7E789E</span><span
+          class="n-name" style="color:rgba(255,255,255,.5)">400</span></div>
+      <div class="n-chip" style="background:#CBC7E0"><span class="n-hex" style="color:#1C1833">#CBC7E0</span><span
+          class="n-name" style="color:rgba(28,24,51,.45)">200</span></div>
+      <div class="n-chip" style="background:#ECEAF6"><span class="n-hex" style="color:#3F3A5C">#ECEAF6</span><span
+          class="n-name" style="color:rgba(63,58,92,.45)">100</span></div>
+      <div class="n-chip" style="background:#F7F6FC"><span class="n-hex" style="color:#3F3A5C">#F7F6FC</span><span
+          class="n-name" style="color:rgba(63,58,92,.45)">50</span></div>
+    </div>
+  </div>
+
+  <!-- ══════════ 06 · PSYCHOLOGY ══════════ -->
+  <div class="section">
+    <div class="section-kicker"><span class="k-num">06</span> Color Psychology</div>
+    <h2 class="section-title">How each color works<br /><span class="hi">on this audience.</span></h2>
+    <p class="section-sub">This palette is tuned for Arabic-speaking, mobile-first learners aged 16–30.</p>
+    <div class="psych-grid">
+      <div class="psych-card">
+        <div class="psych-icon" style="background:var(--coral-50)" data-icon="bolt"></div>
+        <div>
+          <h4>Indigo → Competence</h4>
+          <p>Signals mastery and focus. Used for headers, emphasis, and trusted brand moments.</p>
+        </div>
+      </div>
+      <div class="psych-card">
+        <div class="psych-icon" style="background:var(--coral-50)" data-icon="flame"></div>
+        <div>
+          <h4>Coral → Reward Anticipation</h4>
+          <p>Used only for rewards and progress streaks. Makes reward moments feel clear and exciting.</p>
+        </div>
+      </div>
+      <div class="psych-card">
+        <div class="psych-icon" style="background:var(--coral-50)" data-icon="check"></div>
+        <div>
+          <h4>Mint → Proceed Signal</h4>
+          <p>Used for success and confirmation. High contrast from Coral keeps it clear for all users.</p>
+        </div>
+      </div>
+      <div class="psych-card">
+        <div class="psych-icon" style="background:var(--coral-50)" data-icon="star"></div>
+        <div>
+          <h4>Lemon → Prestige & Achievement</h4>
+          <p>Used only for earned rewards (coins, stars). Keeps gold meaningful and rare.</p>
+        </div>
+      </div>
+      <div class="psych-card">
+        <div class="psych-icon" style="background:var(--coral-50)" data-icon="heart"></div>
+        <div>
+          <h4>Hot Rose → Safe Error Signal</h4>
+          <p>Use for errors and stops. Designed to stay clear even for colorblind users.</p>
+        </div>
+      </div>
+      <div class="psych-card">
+        <div class="psych-icon" style="background:var(--coral-50);" data-icon="code"></div>
+        <div>
+          <h4>Cool Ink → Modern Editorial</h4>
+          <p>Dark text and UI elements that feel modern and digital without being harsh.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ 07 · UI PREVIEW ══════════ -->
+  <!--
+  <div class="section">
+    <div class="section-kicker"><span class="k-num">07</span> Applied Preview</div>
+    <h2 class="section-title">The palette,<br/><span class="hi">in context.</span></h2>
+    <p class="section-sub">All colors working together in a realistic Graphly screen. Light mode.</p>
+
+    <div class="preview-wrap">
+      <div class="preview-bg-dots"></div>
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-head">
+          <div class="ph-eyebrow">Today's Focus</div>
+          <div class="ph-heading">Typography 101</div>
+          <div class="ph-xp-row">
+            <div class="ph-xp-track"><div class="ph-xp-fill"></div></div>
+            <div class="ph-xp-label">640 XP</div>
+          </div>
+        </div>
+        <div class="phone-body">
+          <div class="ph-lesson">
+            <div class="ph-lesson-tag">Skill Node · Active</div>
+            <div class="ph-lesson-name">Hierarchy & Visual Weight</div>
+            <div class="ph-prog"><div class="ph-prog-fill"></div></div>
+          </div>
+          <div class="ph-streak">
+            <div class="ph-streak-icon" data-icon="flame"></div>
+            <div>
+              <div class="ph-streak-title">14-Day Streak!</div>
+              <div class="ph-streak-sub">+50 coins at midnight</div>
+            </div>
+          </div>
+          <div class="ph-hearts">
+            <div class="hrt on"></div><div class="hrt on"></div><div class="hrt on"></div>
+            <div class="hrt off"></div><div class="hrt off"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-notes">
+        <div class="pv-note">
+          <div class="pv-icon" style="background:rgba(92,66,217,.18)" data-icon="bolt"></div>
+          <div><div class="pv-title">Indigo gradient header</div><div class="pv-desc">600→800 signals depth and expertise. "Serious learning" without being cold or corporate.</div></div>
+        </div>
+        <div class="pv-note">
+          <div class="pv-icon" style="background:rgba(240,192,0,.15)" data-icon="star"></div>
+          <div><div class="pv-title">Lemon→Coral XP bar</div><div class="pv-desc">Gold-to-coral gradient on the progress bar. Every session feels like filling a treasure meter.</div></div>
+        </div>
+        <div class="pv-note">
+          <div class="pv-icon" style="background:rgba(0,184,135,.15)" data-icon="check"></div>
+          <div><div class="pv-title">Mint progress fill</div><div class="pv-desc">The "correct/proceed" signal. Semantically clear and colorblind-safe.</div></div>
+        </div>
+        <div class="pv-note">
+          <div class="pv-icon" style="background:rgba(232,72,40,.15)" data-icon="flame"></div>
+          <div><div class="pv-title">Coral streak card</div><div class="pv-desc">Highest dopamine zone. Coral fires reward anticipation before users even read the text.</div></div>
+        </div>
+        <div class="pv-note">
+          <div class="pv-icon" style="background:rgba(232,50,87,.15)" data-icon="heart"></div>
+          <div><div class="pv-title">Hot Rose hearts (depleted)</div><div class="pv-desc">Rose-pink, not aggressive red. Motivates recovery rather than punishment. Accessible to colorblind users.</div></div>
+        </div>
+        <div class="pv-note">
+          <div class="pv-icon" style="background:rgba(255,255,255,.06)" data-icon="moon"></div>
+          <div><div class="pv-title">Dark shell = dark mode preview</div><div class="pv-desc">The phone's shell is the dark mode surface. See Section 09 for the full dark system.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+ -->
+  <!-- ══════════ 08 · CONTRAST ══════════ -->
+  <div class="section">
+    <div class="section-kicker"><span class="k-num">08</span> Accessibility</div>
+    <h2 class="section-title">WCAG 2.1 AA<br /><span class="hi">verified.</span></h2>
+    <p class="section-sub">All primary text colors meet WCAG 2.1 AA. Coral is used only in large text for readability.</p>
+    <div class="contrast-grid">
+      <div class="ct-card">
+        <div class="ct-body"><span class="ct-ratio">5.8 : 1</span><span class="ct-label pass">✓ AA Pass · 4.5 min</span>
+        </div>
+        <div class="ct-swatch" style="background:#5C42D9;color:#fff">White on Indigo 500</div>
+
+      </div>
+      <div class="ct-card">
+        <div class="ct-body"><span class="ct-ratio">19.8 : 1</span><span class="ct-label pass">✓ AAA Pass</span></div>
+        <div class="ct-swatch" style="background:#0C0A18;color:#fff">White on Ink 950</div>
+      </div>
+      <div class="ct-card">
+        <div class="ct-body"><span class="ct-ratio">14.6 : 1</span><span class="ct-label pass">✓ AAA Pass</span></div>
+        <div class="ct-swatch" style="background:#F2F0FF;color:#160D3D">Indigo 950 on 50</div>
+      </div>
+
+
+      <div class="ct-card">
+        <div class="ct-body"><span class="ct-ratio">3.1 : 1</span><span class="ct-label large">⚠ Large Text Only</span>
+        </div>
+        <div class="ct-swatch" style="background:#E84828;color:#fff">White on Coral 500</div>
+      </div>
+      <div class="ct-card">
+        <div class="ct-body"><span class="ct-ratio">4.8 : 1</span><span class="ct-label pass">✓ AA Pass</span></div>
+        <div class="ct-swatch" style="background:#00B887;color:#002E22">Ink 900 on Mint 500</div>
+
+      </div>
+
+      <div class="ct-card">
+        <div class="ct-body"><span class="ct-ratio">5.3 : 1</span><span class="ct-label pass">✓ AA Pass</span></div>
+        <div class="ct-swatch" style="background:#F8F7FD;color:#3F3A5C">Ink 600 on Surface</div>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- ══════════ 09 · DARK MODE ══════════ -->
+  <div class="page">
+    <div class="dm-section">
+      <div class="dm-bg-glow-1"></div>
+      <div class="dm-bg-glow-2"></div>
+
+      <div class="dm-header">
+        <div class="section-dm-kicker"><span data-icon="moon"></span> 09 · Dark Mode System</div>
+        <h2>The palette after <span class="glow">midnight.</span></h2>
+        <p class="dm-sub">A true dark mode palette tuned for night use and AMOLED screens. Not just inverted.</p>
+      </div>
+
+      <!-- Dark primary swatches -->
+      <div class="dm-sw-grid">
+        <div class="dm-sw">
+          <div class="dm-sw-top" style="background:linear-gradient(145deg,#2A1A70,#7C66F5)">
+            <div
+              style="position:absolute;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.07);top:-20px;right:-15px;">
+            </div>
+            <span class="dm-sw-hex">#7C66F5</span>
+          </div>
+          <div class="dm-sw-body">
+            <div class="dm-sw-name">Neon Indigo</div>
+            <span class="dm-sw-role">Brand on Dark</span>
+            <div class="dm-sw-desc">
+              <p>- +20 lightness for dark UI.
+                <br>- 5:1 contrast on the main dark background.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="dm-sw">
+          <div class="dm-sw-top" style="background:linear-gradient(145deg,#8A1F08,#FF6E50)">
+            <div
+              style="position:absolute;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.07);top:-20px;right:-15px;">
+            </div>
+            <span class="dm-sw-hex">#FF6E50</span>
+          </div>
+          <div class="dm-sw-body">
+            <div class="dm-sw-name">Bright Coral</div>
+            <span class="dm-sw-role">Gamification on Dark</span>
+            <div class="dm-sw-desc">
+              <p>- +18 lightness for dark backgrounds.
+              <br>- Rewards still feel bright and punchy.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="dm-sw">
+          <div class="dm-sw-top" style="background:linear-gradient(145deg,#005240,#00E8A8)">
+            <div
+              style="position:absolute;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.07);top:-20px;right:-15px;">
+            </div>
+            <span class="dm-sw-hex">#00E8A8</span>
+          </div>
+          <div class="dm-sw-body">
+            <div class="dm-sw-name">Hyper Mint</div>
+            <span class="dm-sw-role">Success on Dark</span>
+            <div class="dm-sw-desc">
+              <p>- Neon contrast on dark cards (5.1:1).
+                <br>- Clear success signal without glare.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="dm-sw">
+          <div class="dm-sw-top" style="background:linear-gradient(145deg,#706000,#FFD000)">
+            <div
+              style="position:absolute;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.07);top:-20px;right:-15px;">
+            </div>
+            <span class="dm-sw-hex">#FFD000</span>
+          </div>
+          <div class="dm-sw-body">
+            <div class="dm-sw-name">Pure Gold</div>
+            <span class="dm-sw-role">XP & Coins on Dark</span>
+            <div class="dm-sw-desc">
+              <p>- 8.3:1 contrast on dark background.
+                <br>- Used only for major reward moments.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dark scales -->
+      <span class="dm-scale-kicker">Neon Indigo — Dark Mode Tonal Scale</span>
+      <div class="dm-scale-row">
+        <div class="dm-chip" style="background:#160D3D"><span class="dh" style="color:#A594F0">#160D3D</span><span
+            class="ds" style="color:rgba(165,148,240,.5)">950</span></div>
+        <div class="dm-chip" style="background:#2A1A70"><span class="dh" style="color:#A594F0">#2A1A70</span><span
+            class="ds" style="color:rgba(165,148,240,.5)">800</span></div>
+        <div class="dm-chip" style="background:#4830B8"><span class="dh" style="color:#fff">#4830B8</span><span
+            class="ds" style="color:rgba(255,255,255,.6)">600</span></div>
+        <div class="dm-chip" style="background:#7C66F5"><span class="dh" style="color:#fff">#7C66F5 ★DM</span><span
+            class="ds" style="color:rgba(255,255,255,.6)">DM-500</span></div>
+        <div class="dm-chip" style="background:#A594F0"><span class="dh" style="color:#160D3D">#A594F0</span><span
+            class="ds" style="color:rgba(22,13,61,.5)">300</span></div>
+        <div class="dm-chip" style="background:#DDD7FC"><span class="dh" style="color:#160D3D">#DDD7FC</span><span
+            class="ds" style="color:rgba(22,13,61,.5)">100</span></div>
+        <div class="dm-chip" style="background:#F2F0FF; border-right:1.5px solid rgba(92,66,217,.2)"><span class="dh"
+            style="color:#2A1A70">#F2F0FF</span><span class="ds" style="color:rgba(42,26,112,.5)">50</span></div>
+      </div>
+
+      <span class="dm-scale-kicker">Hyper Mint — Dark Mode Tonal Scale</span>
+      <div class="dm-scale-row">
+        <div class="dm-chip" style="background:#002E22"><span class="dh" style="color:#00E8A8">#002E22</span><span
+            class="ds" style="color:rgba(0,232,168,.4)">900</span></div>
+        <div class="dm-chip" style="background:#005240"><span class="dh" style="color:#00E8A8">#005240</span><span
+            class="ds" style="color:rgba(0,232,168,.4)">700</span></div>
+        <div class="dm-chip" style="background:#008A66"><span class="dh" style="color:#fff">#008A66</span><span
+            class="ds" style="color:rgba(255,255,255,.6)">600</span></div>
+        <div class="dm-chip" style="background:#00E8A8"><span class="dh" style="color:#002E22">#00E8A8 ★DM</span><span
+            class="ds" style="color:rgba(0,46,34,.5)">DM-500</span></div>
+        <div class="dm-chip" style="background:#52F0C0"><span class="dh" style="color:#002E22">#52F0C0</span><span
+            class="ds" style="color:rgba(0,46,34,.5)">400</span></div>
+        <div class="dm-chip" style="background:#9EEEDD"><span class="dh" style="color:#005240">#9EEEDD</span><span
+            class="ds" style="color:rgba(0,82,64,.5)">100</span></div>
+        <div class="dm-chip" style="background:#E5FAF4; border-right:1.5px solid rgba(0,232,168,.15)"><span class="dh"
+            style="color:#005240">#E5FAF4</span><span class="ds" style="color:rgba(0,82,64,.5)">50</span></div>
+      </div>
+
+      <!-- Dark surfaces -->
+      <span class="dm-scale-kicker" style="margin-top:36px">Dark Mode Surfaces & Ink</span>
+      <div class="dm-surfaces">
+        <div class="dm-surf" style="background:#0A0816"><span class="dsh"
+            style="color:rgba(255,255,255,.8)">#0A0816</span><span class="dsn" style="color:rgba(255,255,255,.35)">DM
+            Background</span></div>
+        <div class="dm-surf" style="background:#120F24"><span class="dsh"
+            style="color:rgba(255,255,255,.8)">#120F24</span><span class="dsn" style="color:rgba(255,255,255,.35)">DM
+            Surface 1</span></div>
+        <div class="dm-surf" style="background:#1A1730"><span class="dsh"
+            style="color:rgba(255,255,255,.8)">#1A1730</span><span class="dsn" style="color:rgba(255,255,255,.35)">DM
+            Card</span></div>
+        <div class="dm-surf" style="background:#24203E"><span class="dsh"
+            style="color:rgba(255,255,255,.8)">#24203E</span><span class="dsn" style="color:rgba(255,255,255,.35)">DM
+            Elevated</span></div>
+        <div class="dm-surf" style="background:#EAE6FF"><span class="dsh" style="color:#160D3D">#EAE6FF</span><span
+            class="dsn" style="color:rgba(22,13,61,.45)">DM Text Primary</span></div>
+        <div class="dm-surf" style="background:#9E98C0"><span class="dsh" style="color:#fff">#9E98C0</span><span
+            class="dsn" style="color:rgba(255,255,255,.45)">DM Text Secondary</span></div>
+        <div class="dm-surf" style="background:#5A557A"><span class="dsh" style="color:#fff">#5A557A</span><span
+            class="dsn" style="color:rgba(255,255,255,.4)">DM Text Muted</span></div>
+        <div class="dm-surf" style="background:rgba(92,66,217,.22);border-color:rgba(92,66,217,.35)"><span class="dsh"
+            style="color:#A594F0">rgba(92,66,217,.22)</span><span class="dsn" style="color:rgba(165,148,240,.45)">DM
+            Border</span></div>
+      </div>
+
+      <!--   Dark mode phone preview — see full notes in Section 10
+      <div class="dm-preview-row">
+        <div class="phone" style="background:#0A0816;">
+          <div class="phone-notch" style="background:#000"></div>
+          <div class="phone-head" style="background:linear-gradient(150deg,#2A1A70,#160D3D)">
+            <div class="ph-eyebrow" style="color:#A594F0">Tonight's Goal</div>
+            <div class="ph-heading">Branding Basics</div>
+            <div class="ph-xp-row">
+              <div class="ph-xp-track">
+                <div class="ph-xp-fill" style="background:linear-gradient(90deg,#FFD000,#FF6E50)"></div>
+              </div>
+              <div class="ph-xp-label" style="color:#FFD000">1,240 XP</div>
+            </div>
+          </div>
+          <div class="phone-body">
+            <div class="ph-lesson" style="background:rgba(124,102,245,.1);border-color:rgba(124,102,245,.2)">
+              <div class="ph-lesson-tag" style="color:#00E8A8">Skill Node · Night</div>
+              <div class="ph-lesson-name">Logo & Identity Systems</div>
+              <div class="ph-prog" style="background:rgba(255,255,255,.08)">
+                <div class="ph-prog-fill" style="background:linear-gradient(90deg,#00E8A8,#52F0C0)"></div>
+              </div>
+            </div>
+            <div class="ph-streak" style="background:linear-gradient(135deg,#8A1F08,#FF6E50)">
+              <div class="ph-streak-icon" data-icon="flame"></div>
+              <div>
+                <div class="ph-streak-title">21-Day Streak!</div>
+                <div class="ph-streak-sub">You're on fire <span data-icon="trophy"></span></div>
+              </div>
+            </div>
+            <div class="ph-hearts" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.06)">
+              <div class="hrt on" style="background:#E83257"></div>
+              <div class="hrt on" style="background:#E83257"></div>
+              <div class="hrt off"></div>
+              <div class="hrt off"></div>
+              <div class="hrt off"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dm-note-list">
+          <div class="dm-note">
+            <div class="dm-note-dot" style="background:#7C66F5"></div>
+            <div><strong>Neon Indigo #7C66F5</strong><span>+20 lightness from light-mode anchor. Maintains 5.0:1 on
+                dm-card. More electric on dark, same authority.</span></div>
+          </div>
+          <div class="dm-note">
+            <div class="dm-note-dot" style="background:#FF6E50"></div>
+            <div><strong>Bright Coral #FF6E50</strong><span>+18 lightness recalibration. Same energy as Coral Punch, now
+                WCAG-safe on all dark surfaces.</span></div>
+          </div>
+          <div class="dm-note">
+            <div class="dm-note-dot" style="background:#00E8A8"></div>
+            <div><strong>Hyper Mint #00E8A8</strong><span>Full neon — 5.1:1 on dm-card. The correct signal glows without
+                harshness on dark screens.</span></div>
+          </div>
+          <div class="dm-note">
+            <div class="dm-note-dot" style="background:#FFD000"></div>
+            <div><strong>Pure Gold #FFD000</strong><span>8.3:1 on dm-bg. Unmissable XP moments. Premium feel on AMOLED —
+                exactly right.</span></div>
+          </div>
+          <div class="dm-note">
+            <div class="dm-note-dot" style="background:rgba(92,66,217,.4);border:1px solid rgba(92,66,217,.6)"></div>
+            <div><strong>4-Layer Surface Stack</strong><span>BG → Surface → Card → Elevated creates visual depth without
+                any light-mode techniques.</span></div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+  <!-- ══════════ 05 · SECONDARY COLORS ══════════ -->
+  <div id="secondary" class="section">
+    <div class="section-kicker"><span class="k-num">05</span> Secondary Colors</div>
+    <h2 class="section-title">Design system disciplines.<br /><span class="hi">Primary, soft &amp; dim swatches.</span></h2>
+    <p class="section-sub">Each discipline uses a base accent plus soft and dim variants for UI hierarchy, tone, and texture.</p>
+
+    <div class="secondary-grid">
+      <div class="secondary-card">
+        <div class="secondary-card__title">Color Theory</div>
+        <div class="secondary-scale-row" style="--base:#F92EA4; --soft:#EEC7DE; --dim:#800E50;">
+          <div class="secondary-chip" style="background: var(--base);">
+            <span class="secondary-chip__label">Base</span>
+            <span class="secondary-chip__value">#F92EA4</span>
+          </div>
+          <div class="secondary-chip" style="background: var(--soft); color: var(--ink-950);">
+            <span class="secondary-chip__label">Soft</span>
+            <span class="secondary-chip__value">#EEC7DE</span>
+          </div>
+          <div class="secondary-chip" style="background: var(--dim);">
+            <span class="secondary-chip__label">Dim</span>
+            <span class="secondary-chip__value">#800E50</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="secondary-card">
+        <div class="secondary-card__title">Design Principles</div>
+        <div class="secondary-scale-row" style="--base:#8E42FA; --soft:#DDCFF1; --dim:#461092;">
+          <div class="secondary-chip" style="background: var(--base);">
+            <span class="secondary-chip__label">Base</span>
+            <span class="secondary-chip__value">#8E42FA</span>
+          </div>
+          <div class="secondary-chip" style="background: var(--soft); color: var(--ink-950);">
+            <span class="secondary-chip__label">Soft</span>
+            <span class="secondary-chip__value">#DDCFF1</span>
+          </div>
+          <div class="secondary-chip" style="background: var(--dim);">
+            <span class="secondary-chip__label">Dim</span>
+            <span class="secondary-chip__value">#461092</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="secondary-card">
+        <div class="secondary-card__title">Typography</div>
+        <div class="secondary-scale-row" style="--base:#31A1F6; --soft:#C7DDEE; --dim:#0E4F80;">
+          <div class="secondary-chip" style="background: var(--base);">
+            <span class="secondary-chip__label">Base</span>
+            <span class="secondary-chip__value">#31A1F6</span>
+          </div>
+          <div class="secondary-chip" style="background: var(--soft); color: var(--ink-950);">
+            <span class="secondary-chip__label">Soft</span>
+            <span class="secondary-chip__value">#C7DDEE</span>
+          </div>
+          <div class="secondary-chip" style="background: var(--dim);">
+            <span class="secondary-chip__label">Dim</span>
+            <span class="secondary-chip__value">#0E4F80</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="secondary-card">
+        <div class="secondary-card__title">Layout &amp; Grid</div>
+        <div class="secondary-scale-row" style="--base:#10BAF8; --soft:#AFD9E8; --dim:#0B4D64;">
+          <div class="secondary-chip" style="background: var(--base);">
+            <span class="secondary-chip__label">Base</span>
+            <span class="secondary-chip__value">#10BAF8</span>
+          </div>
+          <div class="secondary-chip" style="background: var(--soft); color: var(--ink-950);">
+            <span class="secondary-chip__label">Soft</span>
+            <span class="secondary-chip__value">#AFD9E8</span>
+          </div>
+          <div class="secondary-chip" style="background: var(--dim);">
+            <span class="secondary-chip__label">Dim</span>
+            <span class="secondary-chip__value">#0B4D64</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="secondary-card">
+        <div class="secondary-card__title">UI/UX Design</div>
+        <div class="secondary-scale-row" style="--base:#BA46E1; --soft:#E6D3ED; --dim:#7D269B;">
+          <div class="secondary-chip" style="background: var(--base);">
+            <span class="secondary-chip__label">Base</span>
+            <span class="secondary-chip__value">#BA46E1</span>
+          </div>
+          <div class="secondary-chip" style="background: var(--soft); color: var(--ink-950);">
+            <span class="secondary-chip__label">Soft</span>
+            <span class="secondary-chip__value">#E6D3ED</span>
+          </div>
+          <div class="secondary-chip" style="background: var(--dim);">
+            <span class="secondary-chip__label">Dim</span>
+            <span class="secondary-chip__value">#7D269B</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="secondary-card">
+        <div class="secondary-card__title">Motion Design</div>
+        <div class="secondary-scale-row" style="--base:#B34209; --soft:#E0A384; --dim:#4D2009;">
+          <div class="secondary-chip" style="background: var(--base);">
+            <span class="secondary-chip__label">Base</span>
+            <span class="secondary-chip__value">#B34209</span>
+          </div>
+          <div class="secondary-chip" style="background: var(--soft); color: var(--ink-950);">
+            <span class="secondary-chip__label">Soft</span>
+            <span class="secondary-chip__value">#E0A384</span>
+          </div>
+          <div class="secondary-chip" style="background: var(--dim);">
+            <span class="secondary-chip__label">Dim</span>
+            <span class="secondary-chip__value">#4D2009</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="secondary-card">
+        <div class="secondary-card__title">Brand Identity</div>
+        <div class="secondary-scale-row" style="--base:#951216; --soft:#D17E81; --dim:#3B0C0D;">
+          <div class="secondary-chip" style="background: var(--base);">
+            <span class="secondary-chip__label">Base</span>
+            <span class="secondary-chip__value">#951216</span>
+          </div>
+          <div class="secondary-chip" style="background: var(--soft); color: var(--ink-950);">
+            <span class="secondary-chip__label">Soft</span>
+            <span class="secondary-chip__value">#D17E81</span>
+          </div>
+          <div class="secondary-chip" style="background: var(--dim);">
+            <span class="secondary-chip__label">Dim</span>
+            <span class="secondary-chip__value">#3B0C0D</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="secondary-card">
+        <div class="secondary-card__title">Photography</div>
+        <div class="secondary-scale-row" style="--base:#259638; --soft:#9BC9A3; --dim:#16401D;">
+          <div class="secondary-chip" style="background: var(--base);">
+            <span class="secondary-chip__label">Base</span>
+            <span class="secondary-chip__value">#259638</span>
+          </div>
+          <div class="secondary-chip" style="background: var(--soft); color: var(--ink-950);">
+            <span class="secondary-chip__label">Soft</span>
+            <span class="secondary-chip__value">#9BC9A3</span>
+          </div>
+          <div class="secondary-chip" style="background: var(--dim);">
+            <span class="secondary-chip__label">Dim</span>
+            <span class="secondary-chip__value">#16401D</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="secondary-card">
+        <div class="secondary-card__title">3D &amp; Spatial</div>
+        <div class="secondary-scale-row" style="--base:#0DD2CF; --soft:#A2E6E5; --dim:#0E6B6A;">
+          <div class="secondary-chip" style="background: var(--base);">
+            <span class="secondary-chip__label">Base</span>
+            <span class="secondary-chip__value">#0DD2CF</span>
+          </div>
+          <div class="secondary-chip" style="background: var(--soft); color: var(--ink-950);">
+            <span class="secondary-chip__label">Soft</span>
+            <span class="secondary-chip__value">#A2E6E5</span>
+          </div>
+          <div class="secondary-chip" style="background: var(--dim);">
+            <span class="secondary-chip__label">Dim</span>
+            <span class="secondary-chip__value">#0E6B6A</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="secondary-card">
+        <div class="secondary-card__title">Illustration</div>
+        <div class="secondary-scale-row" style="--base:#8BB516; --soft:#C9DB99; --dim:#425411;">
+          <div class="secondary-chip" style="background: var(--base);">
+            <span class="secondary-chip__label">Base</span>
+            <span class="secondary-chip__value">#8BB516</span>
+          </div>
+          <div class="secondary-chip" style="background: var(--soft); color: var(--ink-950);">
+            <span class="secondary-chip__label">Soft</span>
+            <span class="secondary-chip__value">#C9DB99</span>
+          </div>
+          <div class="secondary-chip" style="background: var(--dim);">
+            <span class="secondary-chip__label">Dim</span>
+            <span class="secondary-chip__value">#425411</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- ══════════ 10 · USAGE RULES ══════════ -->
+  <div id="usage" class="section">
+    <div class="section-kicker"><span class="k-num">10</span> Usage Rules</div>
+    <h2 class="section-title">Where each color belongs.<br /><span class="hi">No exceptions.</span></h2>
+    <p class="section-sub">Stick to these roles in both light and dark mode to keep meaning clear.</p>
+    <table class="use-table">
+      <thead>
+        <tr>
+          <th>Color</th>
+          <th>Light Mode Use</th>
+          <th>Dark Mode Equivalent</th>
+          <th>Never Use For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="ud" style="background:#5C42D9"></span>Electric Indigo</td>
+          <td>Primary buttons, active nav, headers, skill nodes, links, AI critique UI</td>
+          <td>Neon Indigo #7C66F5 — same role, +20 lightness for contrast</td>
+          <td class="td-never">Errors, streaks, reward events, success indicators</td>
+        </tr>
+        <tr>
+          <td><span class="ud" style="background:#E84828"></span>Coral Punch</td>
+          <td>Streak fire, XP bursts, level-up banners, coin cards, reward moments only</td>
+          <td>Bright Coral #FF6E50 — recalibrated for dark contrast</td>
+          <td class="td-never">Navigation, body text, form inputs, errors, informational states</td>
+        </tr>
+        <tr>
+          <td><span class="ud" style="background:#00B887"></span>Neon Mint</td>
+          <td>Correct answers, lesson completion, progress bars, skill unlocked</td>
+          <td>Hyper Mint #00E8A8 — full neon on dark backgrounds</td>
+          <td class="td-never">Decorative use, brand headers, streak/reward UI</td>
+        </tr>
+        <tr>
+          <td><span class="ud" style="background:#F0C000"></span>Lemon Zest</td>
+          <td>XP numbers, coin icons, star ratings, achievement badges only</td>
+          <td>Pure Gold #FFD000 — 8.3:1 on dark, unmissable</td>
+          <td class="td-never">Primary buttons, body text, backgrounds, error or caution states</td>
+        </tr>
+        <tr>
+          <td><span class="ud" style="background:#E83257"></span>Hot Rose</td>
+          <td>Wrong answers, form validation errors, depleted hearts</td>
+          <td>#E83257 works on dark too — same value, sufficient contrast</td>
+          <td class="td-never">Any decorative, branding, neutral, or positive state</td>
+        </tr>
+        <tr>
+          <td><span class="ud" style="background:#F8F7FD;border:1.5px solid #CBC7E0"></span>Surface</td>
+          <td>#F8F7FD — cool-tinted near-white, not pure #FFFFFF</td>
+          <td>4-layer stack: #0A0816 → #120F24 → #1A1730 → #24203E</td>
+          <td class="td-never">Never pure #FFFFFF (too stark) or #000000 (too flat)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">Graphly<span class="dot">.</span></div>
+          <div class="footer-v">Color System</div>
+        </div>
+        <div style="text-align:right">
+          <div style="color:rgba(255,255,255,.45);font-family:var(--ff-body);font-size:13px;margin-bottom:4px">
+            Arabic-first · Gamified · Design Education</div>
+          <div style="color:var(--indigo-400);font-size:11px">Target audience: Arabic-speaking learners, 16–30</div>
+        </div>
+      </div>
+      Based on accessibility standards and regional color research for Arabic-speaking users.
+    </div>
+  </div>
+
+  <script src="assets/icons/icons.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
