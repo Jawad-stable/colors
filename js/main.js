@@ -1,12 +1,13 @@
 // Graphly Design System - Enhanced Interactivity
 // Modern design patterns and user interactions
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Initialize all interactive elements
   initializeColorSwatches();
   initializeCopyToClipboard();
   initializeAnimations();
   initializeNavigation();
+  initializeMobileNav();
 });
 
 /**
@@ -21,11 +22,11 @@ function initializeColorSwatches() {
     // Add visual feedback on hover
     swatch.style.cursor = 'pointer';
 
-    swatch.addEventListener('mouseenter', function() {
+    swatch.addEventListener('mouseenter', function () {
       this.style.transform = 'scale(1.02)';
     });
 
-    swatch.addEventListener('mouseleave', function() {
+    swatch.addEventListener('mouseleave', function () {
       this.style.transform = 'scale(1)';
     });
   });
@@ -44,7 +45,7 @@ function initializeCopyToClipboard() {
 
     const originalText = hex.textContent;
 
-    hex.addEventListener('click', function(e) {
+    hex.addEventListener('click', function (e) {
       e.stopPropagation();
 
       // Extract hex value
@@ -80,7 +81,7 @@ function initializeAnimations() {
     rootMargin: '0px 0px -50px 0px'
   };
 
-  const observer = new IntersectionObserver(function(entries) {
+  const observer = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.style.opacity = '1';
@@ -110,7 +111,7 @@ function initializeAnimations() {
 function initializeNavigation() {
   // Smooth scroll behavior for all anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
       if (href !== '#') {
         e.preventDefault();
@@ -202,56 +203,64 @@ function showToast(message) {
   }, 2000);
 }
 
+
+
 /**
- * Add animation styles to document
+ * Mobile Navigation Dropdown Logic
+ * The dropdown is position:fixed and placed by JS to sit above the three-dots button.
  */
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateX(20px);
+function initializeMobileNav() {
+  const moreBtn = document.querySelector('.nav-more-btn');
+  const dropdown = document.getElementById('nav-dropdown');
+
+  if (!moreBtn || !dropdown) return;
+
+  function positionDropdown() {
+    const rect = moreBtn.getBoundingClientRect();
+    // Align right edge of dropdown to right edge of button
+    const right = window.innerWidth - rect.right;
+    // Place dropdown above the button with a small gap
+    const bottom = window.innerHeight - rect.top + 10;
+    dropdown.style.right = right + 'px';
+    dropdown.style.bottom = bottom + 'px';
+    dropdown.style.left = 'auto';
+    dropdown.style.top = 'auto';
+  }
+
+  function openDropdown() {
+    positionDropdown();
+    dropdown.classList.add('active');
+    dropdown.setAttribute('aria-hidden', 'false');
+    moreBtn.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeDropdown() {
+    dropdown.classList.remove('active');
+    dropdown.setAttribute('aria-hidden', 'true');
+    moreBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  // Toggle on button tap/click
+  moreBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    const isOpen = dropdown.classList.contains('active');
+    isOpen ? closeDropdown() : openDropdown();
+  });
+
+  // Close when clicking/tapping anywhere outside
+  document.addEventListener('click', function (e) {
+    if (!dropdown.contains(e.target) && !moreBtn.contains(e.target)) {
+      closeDropdown();
     }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
+  });
 
-  @keyframes slideOut {
-    from {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    to {
-      opacity: 0;
-      transform: translateX(20px);
-    }
-  }
-
-  /* Enhanced focus states for accessibility */
-  a:focus, button:focus, input:focus {
-    outline: 2px solid var(--indigo-500);
-    outline-offset: 2px;
-  }
-
-  /* Smooth scrolling */
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* Selection styling */
-  ::selection {
-    background-color: var(--indigo-500);
-    color: white;
-  }
-
-  /* Improve cursor for interactive elements */
-  a, button, [role="button"], [data-clickable] {
-    cursor: pointer;
-  }
-`;
-document.head.appendChild(style);
+  // Close on link click and scroll smoothly
+  dropdown.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function () {
+      closeDropdown();
+    });
+  });
+}
 
 // Export for module usage
 if (typeof module !== 'undefined' && module.exports) {
@@ -296,3 +305,24 @@ function initializeNavThemeObserver() {
 
 initializeNavThemeObserver();
 
+// Initialize back-to-top button visibility and click handling
+function initializeBackToTop() {
+  const backToTopBtn = document.getElementById('back-to-top');
+  if (!backToTopBtn) return;
+
+  // Show/hide based on scroll position
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
+  });
+
+  // Smooth scroll to top
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  });
+}
+
+initializeBackToTop();
