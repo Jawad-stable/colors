@@ -106,6 +106,54 @@ body {
   overflow-x: hidden;
 }
 
+/* Animations extracted from main.js */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+/* Enhanced focus states for accessibility */
+a:focus,
+button:focus,
+input:focus {
+  outline: 2px solid var(--indigo-500);
+  outline-offset: 2px;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--indigo-500);
+  color: white;
+}
+
+/* Improve cursor for interactive elements and remove blue tap highlight */
+a,
+button,
+[role="button"],
+[data-clickable] {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -133,43 +181,44 @@ body::before {
 
 .site-nav {
   position: fixed;
-  top: 20px;
-  left: 50%;
+  top: 50%;
+  left: 20px;
   right: auto;
-  transform: translateX(-50%);
+  transform: translateY(-50%);
   z-index: 1100;
   display: flex;
-  justify-content: center;
-  padding: 10px 18px;
+  flex-direction: column;
+  padding: 24px 9px;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 999px;
+  border-radius: 30px;
   box-shadow: 0 14px 32px rgba(12, 10, 24, 0.14);
-  width: min(92vw, 880px);
-  max-width: calc(100% - 32px);
-  transition: background-color 0.4s ease, box-shadow 0.4s ease;
-  /* Smooth transition */
-  backdrop-filter: blur(4px);
-  /* The "glass" effect */
-  -webkit-backdrop-filter: blur(10px);
-  /* Support for Safari */
+  width: 55px;
+  max-width: calc(100vw - 40px);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, box-shadow 0.4s ease;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(14px);
   background-color: rgba(0, 0, 0, 0.5);
   color: var(--ink-50);
+  overflow: hidden;
+  justify-content: center;
+}
+
+.site-nav:hover {
+  width: 200px;
 }
 
 /* Initial Light Glass (at top of page) */
 .nav-dark {
   background-color: rgba(255, 255, 255, 0.6);
-  /* Semi-transparent white */
   color: var(--ink-900);
 }
 
 /* Scrolled Dark Glass */
 .nav-light {
   background-color: rgba(0, 0, 0, 0.5);
-  /* Semi-transparent black */
   color: var(--ink-50);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  /* Optional shadow for depth */
 }
 
 /* Ensure hover/focus link states remain readable on both nav themes */
@@ -180,11 +229,10 @@ body::before {
   color: inherit;
 }
 
-
-
 .site-nav ul {
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  gap: 8px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -193,13 +241,48 @@ body::before {
 
 .site-nav a {
   font-family: var(--ff-mono);
-  font-size: 12px;
-  letter-spacing: .12em;
+  font-size: 13px;
+  letter-spacing: .1em;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 8px 12px;
+  padding: 12px 12px;
   border-radius: 999px;
   color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: background 0.15s ease, color 0.15s ease;
+  width: 100%;
+}
+
+.nav-label {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.site-nav:hover .nav-label {
+  opacity: 1;
+  transition-delay: 0.1s;
+}
+
+/* Inline icons in nav links */
+.nav-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  opacity: 0.75;
+}
+
+/* Icons in section kickers */
+.kicker-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  stroke: var(--indigo-400);
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
 }
 
 .site-nav a:hover,
@@ -213,25 +296,161 @@ body::before {
   box-shadow: 0 0 0 2px rgba(92, 66, 217, 0.3);
 }
 
+/* --- Mobile Nav Dropdown: Three-Dots Button --- */
+
+/* Hidden on desktop entirely */
+.nav-more-wrapper {
+  display: none;
+  position: static;
+}
+
+.nav-more-btn {
+  background: rgba(255, 255, 255, 0.07);
+  border: none;
+  color: var(--ink-50);
+  padding: 14px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+  line-height: 1;
+}
+
+.nav-more-btn:hover,
+.nav-more-btn:focus {
+  background: rgba(92, 66, 217, 0.24);
+  outline: none;
+}
+
+/* CSS-only three dots */
+.nav-more-dots {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-more-dots span {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* --- Dropdown Popup: fixed to viewport, positioned by JS --- */
+.nav-dropdown {
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  min-width: 180px;
+
+  /* Glassmorphism */
+  background-color: rgba(14, 10, 32, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--r-lg);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  /* Start hidden + slightly translated downward */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0s linear 0.22s;
+}
+
+.nav-dropdown.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0s linear 0s;
+}
+
+/* Dropdown links — reset all nav-link inherited styles */
+.nav-dropdown a {
+  font-family: var(--ff-mono);
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 11px 16px;
+  border-radius: var(--r-md);
+  background: transparent !important;
+  /* Override .site-nav a mobile style */
+  scroll-snap-align: unset !important;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.nav-dropdown a:hover,
+.nav-dropdown a:focus {
+  background: rgba(92, 66, 217, 0.22) !important;
+  color: #fff;
+  outline: none;
+}
+
 @media (max-width: 760px) {
-  .site-nav {
-    overflow-x: auto;
-    justify-content: flex-start;
-    padding: 10px 14px;
-    left: 16px;
-    right: 16px;
-    transform: none;
+
+  .site-nav,
+  .site-nav:hover {
+    overflow: visible;
+    flex-direction: row;
+    justify-content: center;
+    padding: 12px 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: auto;
+    bottom: 24px;
     width: auto;
-    max-width: none;
+    max-width: 90vw;
     border-radius: 999px;
+    background-color: rgba(20, 15, 40, 0.85);
+    /* Slightly darker for contrast against more bg's */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Hide the extra items */
+  .mobile-hidden {
+    display: none !important;
+  }
+
+  /* Show the 3-dots wrapper */
+  .nav-more-wrapper {
+    display: block;
+  }
+
+  /* Ensure it always stays visible and readable on mobile regardless of scroll theme class */
+  .site-nav.nav-dark,
+  .site-nav.nav-light {
+    background-color: rgba(20, 15, 40, 0.85) !important;
+    color: var(--ink-50) !important;
   }
 
   .site-nav ul {
-    gap: 8px;
+    flex-direction: row;
+    gap: 12px;
   }
 
   .site-nav a {
     white-space: nowrap;
+    padding: 10px 16px;
+    scroll-snap-align: start;
+    background: rgba(255, 255, 255, 0.05);
+    /* Slight pill background for each link on mobile */
   }
 
   /* Hide scrollbars but keep scrolling usable */
@@ -242,6 +461,11 @@ body::before {
   .site-nav {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  .nav-label {
+    opacity: 1;
+    transition: none;
   }
 }
 
@@ -283,7 +507,7 @@ body::before {
 }
 
 .hero-left {
-  padding: 72px 56px 72px 200px;
+  padding: 72px 56px 72px 150px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -335,7 +559,7 @@ body::before {
   font-size: 16px;
   line-height: 1.75;
   color: rgba(255, 255, 255, .55);
-  max-width: 460px;
+  max-width: 480px;
   font-weight: 400;
   margin-bottom: 36px;
 }
@@ -463,9 +687,9 @@ body::before {
 ═══════════════════════════════════ */
 .section {
   margin: 0px;
-  padding: 64px 200px;
+  padding: 64px 80px 64px 150px;
   background: var(--ink-50);
-  scroll-margin-top: 94px;
+  scroll-margin-top: 40px;
 }
 
 .section:nth-of-type(odd) {
@@ -561,7 +785,7 @@ body::before {
   border-radius: var(--r-lg);
   padding: 28px 22px 24px;
   border: 1.5px solid var(--ink-100);
-  box-shadow: var(--shadow-sm);
+  /* box-shadow: var(--shadow-sm); */
   position: relative;
   overflow: hidden;
   transition: transform .22s cubic-bezier(.34, 1.56, .64, 1), box-shadow .22s ease;
@@ -660,13 +884,13 @@ body::before {
   border-radius: var(--r-xl);
   overflow: hidden;
   border: 1.5px solid var(--ink-100);
-  box-shadow: var(--shadow-sm);
+  /* box-shadow: var(--shadow-sm); */
   transition: transform .22s cubic-bezier(.34, 1.56, .64, 1), box-shadow .22s ease;
 }
 
 .sw-card:hover {
   transform: translateY(-4px) rotate(-.2deg);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 #sw-top {
@@ -870,13 +1094,23 @@ body::before {
   margin-bottom: 12px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 960px) {
+
   .scale-row {
-    flex-direction: column;
+    flex-wrap: wrap;
     height: auto;
   }
-}
 
+  .scale-row .scale-chip {
+    flex: 1 1 180px;
+  }
+
+  /* Prevent hover-flex growth on touch/mobile layouts */
+  .scale-row .scale-chip:hover {
+    flex: 1 1 180px;
+  }
+
+}
 
 .scale-name-row {
   display: flex;
@@ -905,7 +1139,7 @@ body::before {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 8px 10px;
+  padding: 10px 12px;
   cursor: pointer;
   transition: flex .2s ease;
 }
@@ -1436,7 +1670,7 @@ body::before {
 .dm-section {
   background: var(--dm-bg);
   margin: 0px;
-  padding: 64px 200px;
+  padding: 64px 150px;
   position: relative;
   overflow: hidden;
 }
@@ -1628,35 +1862,72 @@ body::before {
 
 .dm-scale-row {
   display: flex;
-  height: 62px;
-  border-radius: var(--r-md);
+  height: 88px;
+  border-radius: var(--r-lg);
   overflow: hidden;
-  border: 1.5px solid var(--dm-border);
+  box-shadow: var(--shadow-sm);
   margin-bottom: 12px;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 
-@media screen and (max-width: 768px) {
+@media (hover: hover) {
+  .dm-scale-row:hover {
+    box-shadow: var(--shadow-lg);
+  }
+}
 
+@media screen and (max-width: 960px) {
   .dm-scale-row {
+    flex-wrap: wrap;
     height: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .dm-scale-row .dm-chip {
+    flex: 1 1 180px;
+  }
+
+  /* Prevent hover-flex growth on touch/mobile layouts */
+  .dm-scale-row .dm-chip:hover {
+    flex: 1 1 180px;
+  }
+}
+
+
+@media screen and (max-width: 960px) {
+
+  .scale-row {
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .scale-row .scale-chip {
+    flex: 1 1 180px;
+  }
+
+  /* Prevent hover-flex growth on touch/mobile layouts */
+  .scale-row .scale-chip:hover {
+    flex: 1 1 180px;
   }
 
 }
+
 
 .dm-chip {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 7px 9px;
-  transition: flex .2s ease;
+  padding: 10px 12px;
   cursor: pointer;
+  transition: flex .2s ease;
 }
 
 .dm-chip:hover {
-  flex: 1.6
+  flex: 1.6;
 }
 
 .dm-chip .dh {
@@ -1766,8 +2037,8 @@ body::before {
   background: var(--card);
   border-radius: var(--r-lg);
   overflow: hidden;
-  border: 1.5px solid var(--ink-100);
-  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--ink-100);
+  /*  box-shadow: var(--shadow-sm); */
   transition: transform .2s ease;
 }
 
@@ -1821,12 +2092,13 @@ body::before {
 ═══════════════════════════════════ */
 .use-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   background: var(--card);
   border-radius: var(--r-lg);
   overflow: hidden;
-  border: 1.5px solid var(--ink-100);
-  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--ink-100);
+  /*box-shadow: var(--shadow-sm);*/
   font-size: 13.5px;
 }
 
@@ -2190,4 +2462,50 @@ body::before {
 .td-never {
   color: var(--error);
   font-weight: 600;
+
+  /* ==========================================================================
+   BACK TO TOP BUTTON
+   ========================================================================== */
+  .back-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(92, 66, 217, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--indigo-300);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 900;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .back-to-top:hover {
+    background: var(--indigo-500);
+    color: white;
+    border-color: transparent;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(92, 66, 217, 0.4);
+  }
+
+  .back-to-top svg {
+    width: 20px;
+    height: 20px;
+  }
 }
